@@ -1,0 +1,69 @@
+require:
+- rubocop-rspec
+- rubocop-rails
+- rubocop-performance
+- rubocop-thread_safety
+
+AllCops:
+  TargetRubyVersion: 2.6.3
+  TargetRailsVersion: 5.2.3
+
+  Include:
+  - "**/*.rb"
+  - Gemfile
+
+  Exclude:
+  - Rakefile
+  - bin/*
+  - db/schema.rb
+  - node_modules/**/*
+
+Rails:
+  Enabled: true
+
+Bundler/OrderedGems:
+  Enabled: false
+
+Metrics/AbcSize:
+  Max: 20
+  Exclude:
+  - config/environments/*
+
+Metrics/ClassLength:
+  Max: 200
+
+Metrics/LineLength:
+  Max: 120
+  IgnoreCopDirectives: true
+  IgnoredPatterns:
+  - '[''"][0-9a-f]{128}[''"]'
+
+Metrics/MethodLength:
+  Max: 20
+
+Naming/PredicateName:
+  Enabled: false
+
+Rails/Delegate:
+  Enabled: false
+
+Rails/HasAndBelongsToMany:
+  Enabled: false
+
+Rails/TimeZone:
+  Enabled: false
+
+Security/YAMLLoad:
+  AutoCorrect: false
+
+Style/ClassAndModuleChildren:
+  EnforcedStyle: compact
+
+Style/Documentation:
+  Enabled: false
+
+Style/EmptyMethod:
+  EnforcedStyle: expanded
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
