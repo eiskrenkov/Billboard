@@ -1,24 +1,6 @@
-# README
+# Billboard
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This repository contains the client solution for the laboratory task that sounds like
+> Develop an application to simulate an automated media content management system for billboards
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Technical requirements: https://cutt.ly/qefr9lg
