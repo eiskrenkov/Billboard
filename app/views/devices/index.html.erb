@@ -1,0 +1,20 @@
+<h1>Fucking devices</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Internal Name</th>
+    <th></th>
+  </tr>
+
+  <% @devices.each do |device| %>
+    <tr>
+      <td><%= device.name %></td>
+      <td><%= device.internal_name %></td>
+      <td><%= link_to 'Show', device_path(device) %></td>
+    </tr>
+  <% end %>
+</table>
+
+
+

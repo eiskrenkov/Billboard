@@ -11,6 +11,7 @@ gem 'devise'
 gem 'simple_form'
 gem 'enumerate_it'
 gem 'inherited_resources'
+gem 'httparty', '~> 0.17.1'
 
 # Frontend
 gem 'webpacker', '~> 4.0'
