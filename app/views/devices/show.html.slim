@@ -10,8 +10,8 @@
 
     - resource.media.each do |media|
       h2 = "#{media.name} (#{media.times_per_hour} times per hour)"
-      .media-file
-        = image_tag url_for media.file
+
+      = file_tag media.file
 
       br
 

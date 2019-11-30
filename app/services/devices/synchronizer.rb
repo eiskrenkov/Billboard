@@ -30,6 +30,7 @@ class Devices::Synchronizer
   def attach_file_to(media, file_data)
     file = downloader_for(file_data[:url]).download
     media.file.attach(io: file, filename: file_data[:name])
+    media.content_type = file_data.fetch(:content_type)
   end
 
   def downloader_for(url)

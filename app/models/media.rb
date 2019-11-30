@@ -15,6 +15,10 @@ class Media < ApplicationRecord
 
   has_one_attached :file
 
+  def video?
+    content_type.starts_with?('video')
+  end
+
   def file_path
     ActiveStorage::Blob.service.send(:path_for, file.key)
   end
