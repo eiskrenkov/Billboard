@@ -17,6 +17,8 @@ class ApiClient::Base
     JSON.parse(
       connection.send(verb, endpoint, params).body
     ).with_indifferent_access
+  rescue StandardError => e
+    raise Error, e.message
   end
 
   def api_host

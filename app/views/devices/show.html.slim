@@ -1,1 +1,20 @@
-= show_raw_details_for ApiClient::Camellia.instance.schedule(resource.internal_name)
+.card
+  .card-body
+    h2 = resource.name.capitalize
+    hr
+
+    = bootstrap_icon_button 'Synchronize', 'sync', url: synchronize_device_path(resource), method: :post,
+                                                   class: 'btn-warning btn-block'
+
+    hr
+
+    - resource.media.each do |media|
+      h2 = "#{media.name} (#{media.times_per_hour} times per hour)"
+      .media-file
+        = image_tag url_for media.file
+
+      br
+
+    - if debug_mode?
+      hr
+      = show_raw_details_for ApiClient::Camellia.instance.schedule(resource.internal_name)

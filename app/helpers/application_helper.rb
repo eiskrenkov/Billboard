@@ -23,4 +23,8 @@ module ApplicationHelper
   def show_raw_details_for(data)
     content_tag(:pre, JSON.pretty_generate(data))
   end
+
+  def debug_mode?
+    Rails.env.development? && Settings.instance.debug
+  end
 end

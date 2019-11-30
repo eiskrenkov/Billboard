@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  resources :devices
+  resources :devices do
+    post :synchronize, on: :member
+  end
 
   resources :settings, only: :index do
     put :update, on: :collection
