@@ -1,1 +1,8 @@
 en:
+  shared:
+    actions: Actions
+    save: Save
+    cancel: Cancel
+    create: Create
+    show: Show
+    delete: Delete

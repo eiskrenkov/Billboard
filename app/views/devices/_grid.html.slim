@@ -1,0 +1,17 @@
+= table_tag
+  thead
+    tr
+      th = resource_class.human_attribute_name(:id)
+      th = resource_class.human_attribute_name(:name)
+      th = resource_class.human_attribute_name(:internal_name)
+      th = t('shared.actions')
+  tbody
+    - collection.each do |device|
+      tr
+        td = link_to device.id, edit_resource_path(device)
+        td = device.name
+        td = device.internal_name
+        td.inline-btn-toolbar
+          = show_button device
+          = edit_button device
+          = delete_button device, data: { confirm: t('confirmations.deletion') }

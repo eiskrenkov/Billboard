@@ -1,0 +1,37 @@
+@import '~bootstrap/scss/bootstrap';
+
+body {
+  padding-top: 80px;
+  padding-bottom: 20px;
+}
+
+.pull-right {
+  float: right;
+}
+
+.pull-left {
+  float: left;
+}
+
+.card {
+  .card-header {
+    border-bottom: none;
+  }
+
+  table {
+    margin-bottom: 0px;
+  }
+
+  .inline-btn-toolbar {
+    .btn {
+      margin-left: 5px;
+    }
+  }
+}
+
+.btn-group-xs > .btn, .btn-xs {
+  padding: .25rem .4rem;
+  font-size: .875rem;
+  line-height: .5;
+  border-radius: .2rem;
+}
