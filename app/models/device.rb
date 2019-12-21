@@ -11,4 +11,6 @@
 
 class Device < ApplicationRecord
   has_many :media, class_name: 'Media', dependent: :destroy
+
+  validates :bytes_capacity, presence: true, numericality: { only_integer: true, greater_than: 0 }
 end

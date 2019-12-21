@@ -3,6 +3,9 @@
     h2 = resource.name.capitalize
     hr
 
+    - flash.each do |_, message|
+      .alert.alert-danger = message
+
     = bootstrap_icon_button 'Synchronize', 'sync', url: synchronize_device_path(resource), method: :post,
                                                    class: 'btn-warning btn-block'
 

@@ -1,6 +1,7 @@
 = simple_form_for resource, url: default_resource_update_path do |device_form|
   = device_form.input :name
   = device_form.input :internal_name
+  = device_form.input :bytes_capacity, type: :number
 
   = cancel_button
   .pull-right = save_button

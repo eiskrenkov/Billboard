@@ -1,5 +1,5 @@
 class Devices::Synchronizer
-  attr_reader :device
+  attr_reader :device, :error
 
   def initialize(device)
     @device = device
@@ -7,7 +7,7 @@ class Devices::Synchronizer
 
   def synchronize
     camellia_response = api_client.schedule(device.internal_name)
-    return if camellia_response.blank?
+    return unless validate_response(camellia_response)
 
     ActiveRecord::Base.transaction do
       device.media.delete_all
@@ -19,6 +19,23 @@ class Devices::Synchronizer
   end
 
   private
+
+  def validate_response(camellia_response)
+    return notice_error('Camellia did not respond properly') unless camellia_response.present? &&
+                                                                    camellia_response.key?(:schedule)
+
+    total_media_size = camellia_response.fetch(:schedule).inject(0) { |sum, media| sum + media.dig(:file, :size) }
+    if total_media_size > device.bytes_capacity
+      return notice_error('Device has no enough space to store incoming media')
+    end
+
+    true
+  end
+
+  def notice_error(message)
+    @error = message
+    false
+  end
 
   def create_media_instance(media_data)
     Media.new(media_data.slice(:name, :times_per_hour)).tap do |media|
