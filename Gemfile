@@ -9,6 +9,7 @@ gem 'puma', '~> 3.11'
 gem 'faraday'
 gem 'mysql2', '>= 0.4.4'
 gem 'simple_form'
+gem 'redis'
 gem 'enumerate_it'
 gem 'inherited_resources'
 
