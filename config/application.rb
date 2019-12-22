@@ -8,6 +8,9 @@ module Billboard
   class Application < Rails::Application
     config.load_defaults 6.0
 
+    # Sidekiq for Active Job
+    config.active_job.queue_adapter = :sidekiq
+
     config.autoload_paths += %w[
       app/enumerations
     ].map { |path| File.join config.root, path }

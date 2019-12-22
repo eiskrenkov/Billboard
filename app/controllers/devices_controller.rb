@@ -12,18 +12,23 @@ class DevicesController < ApplicationController
   end
 
   def synchronize
-    synchronizer = Devices::Synchronizer.new(resource)
+    request_performer.perform
+    Devices::Synchronizer.new(resource, response).synchronize
 
-    if synchronizer.synchronize
-      flash[:notice] = 'Device schedule was synchronized successfully'
+    if request_performer.success?
+      flash[:notice] = 'Job was queued'
     else
-      flash[:alert] = synchronizer.error
+      flash[:alert] = request_performer.error
     end
 
     redirect_back fallback_location: root_path
   end
 
   private
+
+  def request_performer
+    @request_performer ||= Devices::ScheduleRequestPerformer.new(resource)
+  end
 
   def device_params
     params.require(:device).permit(:name, :internal_name, :bytes_capacity)
