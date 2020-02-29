@@ -5,7 +5,7 @@ ruby '2.6.3'
 
 # Core
 gem 'rails', '~> 6.0.0'
-gem 'puma', '~> 3.11'
+gem 'puma', '~> 3.12'
 gem 'faraday'
 gem 'sidekiq'
 gem 'mysql2', '>= 0.4.4'
